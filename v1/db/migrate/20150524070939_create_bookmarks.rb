@@ -1,0 +1,11 @@
+class CreateBookmarks < ActiveRecord::Migration
+  def change
+    create_table :bookmarks do |t|
+      t.integer :user_id
+      t.integer :article_id
+      t.datetime :saved_time
+      t.timestamps null: false
+    end
+    add_index :bookmarks, ["user_id", "article_id"]
+  end
+end
